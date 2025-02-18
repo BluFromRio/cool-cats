@@ -1,8 +1,14 @@
 body {
     font-family: Arial, sans-serif;
+    font-size: 20px;
     margin: 0;
     padding: 0;
     text-align: center;
+}
+
+main {
+    max-width: 70em;
+    margin: 0 auto;
 }
 
 header {
@@ -24,4 +30,60 @@ nav ul li {
 nav ul li a {
     color: white;
     text-decoration: none;
+}
+
+.person {
+    display: flex;
+    justify-content: left;
+    text-align: left;
+}
+
+.people {
+    display: flex;
+    justify-content: center;
+}
+
+.personimage {
+    max-width: 100%;
+    padding: 20px;
+    /* flex-basis: 40%; */
+}
+
+.personimage img {
+    border: 10px solid transparent;
+    border-radius: 20px;
+    background-image: linear-gradient(white, white), linear-gradient(to right, red, purple);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+iframe {
+    display: block;
+    border: 10px solid transparent;
+    border-radius: 20px;
+    background-image: linear-gradient(white, white), linear-gradient(to right, red, purple);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    margin: 15px auto;
+}
+
+.button {
+    padding: 15px;
+    margin: 50px auto;
+}
+
+.button a {
+    /* display: block; */
+    padding: 15px;
+    border: 10px solid transparent;
+    border-radius: 20px;
+    background-image: linear-gradient(white, white), linear-gradient(to right, red, purple);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    margin: 15px auto;
+}
+
+.persontext {
+    padding: 20px 20px;
+    text-align: left;
 }
