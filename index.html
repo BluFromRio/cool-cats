@@ -7,34 +7,65 @@
     <link rel="stylesheet" href="stylepage.css">
 </head>
 <body>
+
+    <!-- Header & Navigation -->
     <header>
-        <h1>Welcome to Our Website</h1>
+        <h1 class="header">Welcome to Our Site</h1>
         <nav>
-            <ul>
+            <ul class="nav-links">
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="intersectionality.html">Intersectionality & Implicit Bias</a></li>
                 <li><a href="tech-hero.html">Tech Hero Spotlight</a></li>
             </ul>
         </nav>
     </header>
+
+    <!-- Main Content -->
     <main>
-        <div class="people">
-            <div class="personimage">
-                <img src="ben.jpg" height="180" width="180">
+        <section class="index-people">
+
+            <!-- Ben's Section (Top Left) -->
+            <div class="index-card left-card">
+                <div class="index-image">
+                    <a href="about.html#ben"><img src="ben.jpg" alt="Ben Friedl"></a>
+                </div>
+                <div class="index-text">
+                    <h2>Benjamin Friedl</h2>
+                </div>
             </div>
-            <div class="personimage">
-                <img src="hani.jpg" height="180" width="180">
+
+            <!-- Hani's Section (Middle Right) -->
+            <div class="index-card right-card">
+                <div class="index-text">
+                    <h2>Hani Sulieman</h2>
+                </div>
+                <div class="index-image">
+                    <a href="about.html#hani"><img src="hani.jpg" alt="Hani Sulieman"></a>
+                </div>
             </div>
-            <div class="personimage">
-                <img src="tristan.jpg" height="180" width="180">
+
+            <!-- Tristan's Section (Bottom Left) -->
+            <div class="index-card left-card">
+                <div class="index-image">
+                    <a href="about.html#tristan"><img src="tristan.jpg" alt="Tristan Rivas"></a>
+                </div>
+                <div class="index-text">
+                    <h2>Tristan Rivas</h2>
+                </div>
             </div>
-        </div>
-        <p>
-            Welcome to our website! Here you can
-            <a href="intersectionality.html">learn about intersectionality and implicit bias</a>,
-            <a href="tech-hero.html">learn about a tech hero who inspires us</a>,
-            <a href="about.html">or learn a bit about ourselves</a>.
-        </p>
+
+        </section>
+
+        <!-- Information Card -->
+        <section class="info-card">
+            <p>
+                Welcome to our website! Here you can
+                <a href="intersectionality.html">learn about intersectionality and implicit bias</a>,
+                <a href="tech-hero.html">learn about a tech hero who inspires us</a>,
+                <a href="about.html">or learn a bit about ourselves</a>.
+            </p>
+        </section>
     </main>
+
 </body>
 </html>
