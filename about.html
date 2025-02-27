@@ -7,47 +7,84 @@
     <link rel="stylesheet" href="stylepage.css">
 </head>
 <body>
+
+    <!-- Header with Full Navigation -->
     <header>
         <h1>About Us</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
+                <li><a href="techhero.html">Tech Hero</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="#ben">Ben</a></li>
+                <li><a href="#hani">Hani</a></li>
+                <li><a href="#tristan">Tristan</a></li>
             </ul>
         </nav>
     </header>
-    <main>
-        <div class="person">
-            <div class="personimage">
-                <img src="ben.jpg" height="180" width="180">
-            </div>
-            <div class="persontext">
-                <h2>Ben Friedl</h2>
-                <p>I'm Ben Friedl, a Computer Sciences and Information Science major at UW Madison. I have a personal site + blog at <a href="https://ben.enterprises">ben.enterprises</a>.
-                My favorite tech thing is probably my e-reader, which allows me to quickly start reading new books.</p>
-            </div>
-        </div>
-        <div class="person">
-            <div class="personimage">
-                <img src="hani.jpg" height="180" width="180">
-            </div>
-            <div class="persontext">
-                <h2>Hani Sulieman</h2>
-                <p>TODO</p>
-            </div>
-        </div>
-        <div class="person">
-            <div class="personimage">
-                <img src="tristan.jpg" height="180" width="180">
-            </div>
-            <div class="persontext">
-                <h2>Tristan Rivas</h2>
-                <p>My name is Tristan Rivas, Information Science Major, and cat owner. I enjoy game development and reading about new tech developments.
-                 My favorite tech thing is the concept of open-source, especially GODOT <a href="https://godotengine.org/">godot.MIT</a></p>
-            </div>
-        </div>
-        
-        
 
+    <!-- Large Banner Image -->
+    <section class="banner">
+        <h2>Meet Our Team</h2>
+        <p>Passionate about technology, communication, and innovation.</p>
+    </section>
+
+    <!-- About Sections with Clickable Anchors -->
+    <main>
+        <section class="people">
+
+            <!-- Ben's Profile -->
+            <div id="ben" class="person">
+                <div class="personimage">
+                    <img src="ben.jpg" alt="Ben Friedl">
+                </div>
+                <div class="persontext">
+                    <h2>Ben Friedl</h2>
+                    <p>
+                        I'm Ben Friedl, a Computer Sciences and Information Science major at UW Madison. 
+                        I have a personal site + blog at 
+                        <a href="https://ben.enterprises" target="_blank">ben.enterprises</a>.
+                        My favorite tech thing is probably my e-reader, which allows me to quickly start reading new books.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Hani's Profile -->
+            <div id="hani" class="person">
+                <div class="personimage">
+                    <img src="hani.jpg" alt="Hani Sulieman">
+                </div>
+                <div class="persontext">
+                    <h2>Hani Sulieman</h2>
+                    <p>
+                        My name is Hani Sulieman. I'm a junior studying Information Science with a focus on Digital Communication. 
+                        I want to go into the cybersecurity field because I'm interested in how humans play a role in security and the importance of protection measures.
+                    </p>
+                    <p>
+                        In my free time, I enjoy baking, and my favorite desserts to make right now are tiramisu and tres leches. 
+                        I also love learning new languages; I speak four: Somali, Hindi, English, and Urdu. 
+                        I believe that language is a vital tool for understanding someone's culture, which allows me to connect with people outside of my community.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tristan's Profile -->
+            <div id="tristan" class="person">
+                <div class="personimage">
+                    <img src="tristan.jpg" alt="Tristan Rivas">
+                </div>
+                <div class="persontext">
+                    <h2>Tristan Rivas</h2>
+                    <p>
+                        My name is Tristan Rivas, Information Science Major, and cat owner. I enjoy game development and reading about new tech developments.
+                        My favorite tech thing is the concept of open-source, especially 
+                        <a href="https://godotengine.org/" target="_blank">Godot</a>.
+                    </p>
+                </div>
+            </div>
+
+        </section>
     </main>
+
 </body>
 </html>
