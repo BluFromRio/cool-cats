@@ -1,6 +1,9 @@
+/* =========================== */
 /* General Styles */
+/* =========================== */
+
 body {
-    font-family: 'Poppins', sans-serif; /* Clean, modern font */
+    font-family: 'Poppins', sans-serif; 
     font-size: 18px;
     margin: 0;
     padding: 0;
@@ -9,7 +12,10 @@ body {
     line-height: 1.6;
 }
 
-/* Header Styling */
+/* =========================== */
+/* Header & Navigation */
+/* =========================== */
+
 header {
     background: linear-gradient(to right, #6a11cb, #2575fc);
     color: white;
@@ -18,46 +24,125 @@ header {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Navigation */
-nav ul {
+/* Home Navigation */
+.nav-home {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.nav-home a {
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+/* Page Navigation Links */
+.nav-links {
     list-style: none;
     padding: 0;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
-nav ul li {
+.nav-links li {
     display: inline;
-    margin: 0 15px;
 }
 
-nav ul li a {
+.nav-links a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
+    font-size: 18px;
     transition: color 0.3s ease-in-out;
 }
 
-nav ul li a:hover {
+.nav-links a:hover {
     color: #ffd700;
 }
 
+/* =========================== */
 /* Large Banner Section */
+/* =========================== */
+
 .banner {
     text-align: center;
     padding: 60px 20px;
     background: url('banner-image.jpg') no-repeat center center/cover;
-    color: white;
+    color: black;
     font-size: 24px;
     font-weight: bold;
 }
 
-/* Main Content */
+/* =========================== */
+/* Main Content Styling */
+/* =========================== */
+
 main {
     max-width: 80%;
     margin: 40px auto;
+    text-align: center;
 }
 
-/* Profile Card Styling */
+/* =========================== */
+/* Content Cards for Sections */
+/* =========================== */
+
+.content-card {
+    background: white;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Headers */
+.content-card h2 {
+    color: #6a11cb;
+    margin-bottom: 15px;
+}
+
+/* =========================== */
+/* Video Styling */
+/* =========================== */
+
+.video-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.video-container iframe {
+    border-radius: 10px;
+    max-width: 100%;
+}
+
+/* =========================== */
+/* Buttons */
+/* =========================== */
+
+.button {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.button a {
+    padding: 15px;
+    border-radius: 12px;
+    background: linear-gradient(to right, red, purple);
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.3s ease-in-out;
+}
+
+.button a:hover {
+    background: linear-gradient(to right, purple, red);
+}
+
+/* =========================== */
+/* About Page: Profile Cards */
+/* =========================== */
+
 .people {
     display: flex;
     flex-direction: column;
@@ -80,7 +165,7 @@ main {
     transform: scale(1.05);
 }
 
-/* Profile Image */
+/* Profile Images */
 .personimage {
     flex-shrink: 0;
     padding: 20px;
@@ -102,6 +187,7 @@ main {
 .persontext {
     padding: 10px 20px;
     max-width: 600px;
+    text-align: left;
 }
 
 .persontext h2 {
@@ -114,7 +200,7 @@ main {
     margin-bottom: 10px;
 }
 
-/* Links */
+/* Links in About Page */
 .persontext a {
     color: #2575fc;
     font-weight: bold;
@@ -126,18 +212,162 @@ main {
     color: #ff5733;
 }
 
+/* =========================== */
+/* Tech Hero Spotlight */
+/* =========================== */
+
+.spotlight {
+    background: white;
+    padding: 30px;
+    margin: 20px auto;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.spotlight img {
+    width: 250px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* =========================== */
+/* What Intersectionality Means to Us */
+/* =========================== */
+
+.perspectives {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.perspective {
+    background: #f0f0f0;
+    padding: 15px;
+    border-radius: 10px;
+    width: 90%;
+    text-align: center;
+}
+
+.perspective h3 {
+    color: #6a11cb;
+}
+
+/* =========================== */
+/* Index Page: Custom Layout */
+/* =========================== */
+
+.index-people {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 20px;
+}
+
+/* Index Page: Name + Image Cards */
+.index-card {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 60%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.index-card:hover {
+    transform: scale(1.05);
+}
+
+/* Positioning: Ben & Tristan (Left) | Hani (Right) */
+.left-card {
+    align-self: flex-start;
+}
+
+.right-card {
+    align-self: flex-end;
+}
+
+/* Image Styling */
+.index-image {
+    flex-shrink: 0;
+    padding: 15px;
+}
+
+.index-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid #6a11cb;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.index-image img:hover {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Name Text */
+.index-text {
+    padding: 10px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #6a11cb;
+}
+
+/* Info Card */
+.info-card {
+    background: #f0f0f0;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    margin: 30px auto; /* Center Horizontally */
+    width: 60%; /* Keep the structured look */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center; /* Ensure text is centered */
+    align-items: center;
+}
+
+.info-card p {
+    font-size: 18px;
+}
+
+.info-card a {
+    font-weight: bold;
+    color: #2575fc;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.info-card a:hover {
+    color: #ff5733;
+}
+
+/* =========================== */
 /* Responsive Design */
+/* =========================== */
+
 @media (max-width: 768px) {
+    .index-card {
+        flex-direction: column;
+        text-align: center;
+        width: 80%;
+    }
+
     .person {
         flex-direction: column;
         text-align: center;
     }
 
-    .personimage {
-        padding: 10px;
+    .people-index {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .persontext {
-        text-align: center;
+    .info-card {
+        width: 80%;
     }
 }
