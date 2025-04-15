@@ -226,7 +226,8 @@ main {
 }
 
 .spotlight img {
-    width: 250px;
+    width: 90%;
+    max-width: 720px;
     border-radius: 10px;
     margin-bottom: 15px;
 }
@@ -370,4 +371,65 @@ main {
     .info-card {
         width: 80%;
     }
+}
+
+/* =========================== */
+/* Pet Classifier Image Tiles */
+/* =========================== */
+
+.tiles {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.tile {
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+    cursor: grab;
+    border: 2px solid #fff;
+    border-radius: 8px;
+}
+
+.tile-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tile-label {
+    margin-top: 8px;
+    font-weight: bold;
+    color: #6a11cb;
+    font-size: 16px;
+}
+
+.personimage .training-preview {
+    width: 150%;
+    max-width: 750px;
+    height: 150%;
+    max-height: 750px;
+    border-radius: 10px;
+    border: none;
+}
+
+/* Individual Pet Tile Backgrounds */
+.tile.jasper {
+    background-image: url('jasper.jpg');
+}
+
+.tile.cheddar {
+    background-image: url('cheddar.jpg');
+}
+
+.tile.jamey {
+    background-image: url('jamey.jpg');
+}
+
+.tile.lulu {
+    background-image: url('lulu.jpg');
 }
