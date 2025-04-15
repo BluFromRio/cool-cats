@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pet Image Classifier</title>
+  <link rel="stylesheet" href="stylepage.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ml5@0.12.2/dist/ml5.min.js"></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Pet Identifier</h1>
+    <nav>
+      <div class="nav-home">
+        <a href="index.html">Home</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#demo">Classifier Demo</a></li>
+        <li><a href="#training">Training Process</a></li>
+        <li><a href="#project-statement">Project Statement</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Banner -->
+  <section class="banner">
+    <h2>Classify Your Pet with Machine Learning</h2>
+    <p>Drop an image of your pet into the classifier and let our model tell you who's who!</p>
+  </section>
+
+  <!-- Main Content -->
+  <main>
+
+<!-- Combined Demo + Explanation -->
+<section id="demo" class="content-card">
+    <h2>Try It Out!</h2>
+    <div class="people">
+      <div class="person">
+        <!-- Left side: explanation with sub-header -->
+        <div class="persontext">
+          <h3>How It Works</h3>
+          <p>
+            This tool uses a machine learning model trained in Google's Teachable Machine. We've used ml5.js and p5.js to integrate
+            that model into a web page, allowing you to classify images of pets by dragging them into a central drop zone.
+          </p>
+          <p>
+            The model has been trained on specific photos of our pets — Jasper, Cheddar, Jamey, and Lulu. Try dropping one in to see
+            if the classifier gets it right!
+          </p>
+        </div>
+  
+        <!-- Right side: classifier UI -->
+        <div class="personimage">
+          <div id="canvas-container"></div>
+          <p id="result">Prediction: ...</p>
+  
+          <div class="tiles">
+            <div class="tile-wrapper">
+              <div class="tile jasper" draggable="true" data-src="jasper.jpg"></div>
+              <div class="tile-label">Jasper</div>
+            </div>
+            <div class="tile-wrapper">
+              <div class="tile cheddar" draggable="true" data-src="cheddar.jpg"></div>
+              <div class="tile-label">Cheddar</div>
+            </div>
+            <div class="tile-wrapper">
+              <div class="tile jamey" draggable="true" data-src="jamey.jpg"></div>
+              <div class="tile-label">Jamey</div>
+            </div>
+            <div class="tile-wrapper">
+              <div class="tile lulu" draggable="true" data-src="lulu.jpg"></div>
+              <div class="tile-label">Lulu</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+
+<!-- Model Training Process -->
+<section id="training" class="content-card">
+    <h2>Training the Model</h2>
+    <div class="people">
+      <div class="person">
+        <!-- Left: Training description -->
+        <div class="persontext">
+          <p>
+            When we started training the model, we began with Cheddar. He’s got a unique fluffy look, so it felt like a good first test case. After that we added Lulu — similar energy, but shorter hair and slightly different posture.
+          </p>
+          <p>
+            Then we added Jamey, who has similar coloring to Lulu, which helped the model get better at noticing more detailed features. Finally, we added Jasper, since he’s not a cat and has a very different appearance. That way, we could mix pet types and see how well the model handled variation.
+          </p>
+        </div>
+  
+        <!-- Right: Image + Video stacked -->
+        <div class="personimage">
+            <img src="process.jpg" alt="Screenshot of training the model in Teachable Machine" class="training-preview">
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Model Training Process Video Portion -->
+<section id="training-2" class="content-card">
+    <h2>Video Demo</h2>
+    <div class="people">
+      <div class="person">
+        <!-- Left: Training description -->
+        <div class="persontext">
+          <p>
+            In this demo we go through all the pets: Lulu, Cheddar, Jamey, and Jasper.
+          </p>
+          <p>
+            The video is just a demonstration of how the machine works under the hood
+          </p>
+        </div>
+  
+        <!-- Right: Image + Video stacked -->
+        <div class="personimage">
+            <video controls style="width: 120%; max-width: 500px; border-radius: 10px;">
+                <source src="demo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+<!-- Project Statement -->
+<section id="project-statement" class="content-card">
+    <h2>Project Statement</h2>
+    <div class="persontext" style="max-width: 700px; margin: 0 auto;">
+      <p>
+        Buolamwini couldn’t get off-the-shelf facial tracking technology to recognize her face, until she wore a white mask. The AI models used in these facial tracking software packages reflected the biases of the people that created them. Because the creators of these AI models were not testing them on Black women and other minority groups, they were less effective at detecting their faces.
+      </p>
+      <p>
+        When IBM became aware their model was misidentifying Black women, they created an updated model that was better able to detect their faces, increasing accuracy from 65.3% to 96.5%. This lesson — that defaults are not neutral — from <em>Unmasking AI</em> resonates with us.
+      </p>
+      <p>
+        As we create our own artificial intelligence systems, we want to try to be cognizant of the fact that biases in our training data will be reflected in our AI model. By training on and testing with many different kinds of pets, we reduce the risk of a pet getting misclassified by our model.
+      </p>
+      <p>
+        While we will likely be unable to completely eliminate bias or error from our model, by ensuring we have diverse training and testing data, we reduce the amount of bias present in our model.
+      </p>
+    </div>
+  </section>
+  
+
+  </main>
+
+  <!-- JS Classifier Logic -->
+  <script>
+    let classifier;
+    let label = "Waiting for image...";
+    let droppedImage;
+    let imgReady = false;
+    let modelURL = "https://teachablemachine.withgoogle.com/models/Als7ZN0pl/";
+
+    function preload() {
+      classifier = ml5.imageClassifier(modelURL + "model.json");
+    }
+
+    function setup() {
+      let canvas = createCanvas(300, 300);
+      canvas.parent("canvas-container");
+      background(30);
+      textAlign(CENTER, CENTER);
+      textSize(16);
+      fill(255);
+      text("Drop a pet image here", width / 2, height / 2);
+
+      const tiles = document.querySelectorAll('.tile');
+      const imageMap = {
+        "jasper.jpg": "jasper.jpg",
+        "cheddar.jpg": "cheddar.jpg",
+        "jamey.jpg": "jamey.jpg",
+        "lulu.jpg": "lulu.jpg"
+      };
+
+      tiles.forEach(tile => {
+        const src = tile.getAttribute("data-src");
+        tile.style.backgroundImage = `url('${imageMap[src]}')`;
+
+        tile.addEventListener('dragstart', e => {
+          e.dataTransfer.setData("src", src);
+        });
+      });
+
+      const dropTarget = document.getElementById("canvas-container");
+      dropTarget.addEventListener('dragover', e => e.preventDefault());
+
+      dropTarget.addEventListener('drop', e => {
+        e.preventDefault();
+        const src = e.dataTransfer.getData("src");
+
+        loadImage(src, img => {
+          droppedImage = img;
+          imgReady = true;
+        });
+      });
+    }
+
+    function draw() {
+      if (imgReady && droppedImage) {
+        background(0);
+        image(droppedImage, 0, 0, width, height);
+
+        classifier.classify(droppedImage, gotResult);
+        imgReady = false;
+      }
+    }
+
+    function gotResult(error, results) {
+      if (error) {
+        console.error(error);
+        label = "Error!";
+        return;
+      }
+
+      label = "Prediction: " + results[0].label;
+      document.getElementById("result").innerText = label;
+    }
+  </script>
+
+</body>
+</html>
